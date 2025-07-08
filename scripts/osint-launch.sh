@@ -57,4 +57,3 @@ done < "$OUTPUT_DIR/emails.txt"
 ~/.osint-toolkit/scripts/osint-report.sh "$OUTPUT_DIR" "$DOMINIO"
 
 echo "[✓] Report OSINT generato in: $OUTPUT_DIR/domain_report.html"
-
