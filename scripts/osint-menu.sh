@@ -1,42 +1,42 @@
 #!/bin/bash
+# osint-menu.sh - Interactive CLI menu for individual OSINT tools
+
 clear
 echo "===== OSINT TOOLKIT MENU ====="
-select opt in "WHOIS" "Subfinder" "Amass" "DNS Twist" "theHarvester" "Shodan" "Holehe" "Esci"
+select opt in "WHOIS" "Subfinder" "Amass" "DNS Twist" "theHarvester" "Shodan" "Holehe" "Exit"
 do
-    case \$opt in
+    case $opt in
         "WHOIS")
-            read -p "Dominio: " dom
-            whois \$dom | less
+            read -p "Enter domain: " dom
+            whois $dom | less
             ;;
         "Subfinder")
-            read -p "Dominio: " dom
-            subfinder -d \$dom
+            read -p "Enter domain: " dom
+            subfinder -d $dom
             ;;
         "Amass")
-            read -p "Dominio: " dom
-            amass enum -d \$dom
+            read -p "Enter domain: " dom
+            amass enum -d $dom
             ;;
         "DNS Twist")
-            read -p "Dominio: " dom
-            dnstwist \$dom | less
+            read -p "Enter domain: " dom
+            dnstwist $dom | less
             ;;
         "theHarvester")
-            read -p "Dominio: " dom
-            theHarvester -d \$dom -b all
+            read -p "Enter domain: " dom
+            theHarvester -d $dom -b all
             ;;
         "Shodan")
-            read -p "IP: " ip
-            shodan host \$ip
+            read -p "Enter IP address: " ip
+            shodan host $ip
             ;;
         "Holehe")
-            read -p "Email: " email
-            holehe -e \$email
+            read -p "Enter email address: " email
+            holehe -e $email
             ;;
-        "Esci")
+        "Exit")
             break
             ;;
-        *) echo "Opzione non valida";;
+        *) echo "Invalid option";;
     esac
 done
-EOF
-chmod +x ~/.osint-toolkit/scripts/osint-menu.sh
